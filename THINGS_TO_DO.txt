@@ -1,8 +1,0 @@
-i##
-
-Dirò nella tesi che, per mancanza di tempo e di reperibilità, non sono riuscito a discriminare tra glitch e surgoenti puntiformi.
-In un'analisi reale è molto semplice distignuere tra le due cose. 
-
-Dai un'occhiata alla `matrice di confusione` e la curva ROI dal nuovo libro per visualizzare la bontà del network.
-
-- Prova a demodulare il segnale facendo media su 1h con moving average e fare valore assouto.  
