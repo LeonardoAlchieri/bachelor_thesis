@@ -56,6 +56,6 @@ perm = np.random.permutation(x.shape[0])
 np.take(x, perm, axis=0, out=x)
 np.take(y, perm, axis=0, out=y)
 
-my_model = models.load_model("networks/glitch_detector.h5")
+my_model = models.load_model("../networks/glitch_detector.h5")
 
 my_model.evaluate(x,y[:,0])
