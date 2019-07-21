@@ -7,8 +7,12 @@ Code to clean Planck/HFI and the neural network to analyse it.
     sarebbe facilmente eseguibile: se un "glitch" appare in due giorni diversi nello stesso posto, significa che è una
     sorgente puntiforme.
 
-## COSE DA FARE ##  
-  – Provare a classificare l'efficiacia del test usando la matrice di confusione e la curva ROC (vedi il libro che mi è stato
-    passato da Tomasi)
+## COSE FATTE ##
+  – Ho aggiunto al codice per il test ```main_network_test.py``` il calcolo di una _confusion matrix_ e della curva _ROC_ (fatta su un numero grandissimo di possibili thresholds, 300000). 
+
+## DOMANDE ##  
+  – Devo andare anche a calcolare l'area sotto la _ROC_ (nota come _AUC_)? Ritengo che semplicemente mostrare come la curva 
+    "molto bella" (ovvero quasi tutta schiacciata a sinistra) sia già abbastanza per far vedere che il mio network funziona 
+    molto bene.
 
 ©Leonardo Alchieri, 2019
