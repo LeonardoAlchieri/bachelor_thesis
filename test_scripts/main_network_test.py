@@ -14,6 +14,7 @@ from statistics import median
 from tensorflow.keras import layers
 from tensorflow.keras import models
 from tensorflow.keras import optimizers
+from sklearn.metrics import confusion_matrix
 
 RESCALE = 10000000
 KERNEL = 1
@@ -57,5 +58,18 @@ np.take(x, perm, axis=0, out=x)
 np.take(y, perm, axis=0, out=y)
 
 my_model = models.load_model("../networks/glitch_detector.h5")
-
+print("\n Testing on new data.\n")
 my_model.evaluate(x,y[:,0])
+print("\n")
+
+y_pred = my_model.predict(x)
+
+# I have to feed to the function "confusion_matrix" array of 1s and 0s
+PREDICTION_THRESHOLD = 0.5  #I set a threshold for the prediction
+y_pred = y_pred[:,0]+PREDICTION_THRESHOLD
+
+my_matrix = confusion_matrix(y[:,0].astype(int), y_pred.astype(int))
+print("Confusion matrix \n", my_matrix, end="\n")
+print("\n Description: \n [[ good 1s, false 0s] \n [false 1s, good 0s]] \n")
+
+
