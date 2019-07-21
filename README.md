@@ -8,7 +8,7 @@ Code to clean Planck/HFI and the neural network to analyse it.
     sorgente puntiforme.
 
 ## COSE DA FARE ##  
-  – Provare a classificare l'efficiacia del test usando la matrice di confusione e la curva ROI (vedi il libro che mi è stato
+  – Provare a classificare l'efficiacia del test usando la matrice di confusione e la curva ROC (vedi il libro che mi è stato
     passato da Tomasi)
 
 ©Leonardo Alchieri, 2019
