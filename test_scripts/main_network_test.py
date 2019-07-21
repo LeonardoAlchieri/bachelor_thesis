@@ -66,9 +66,9 @@ y_pred = my_model.predict(x)
 
 # I have to feed to the function "confusion_matrix" array of 1s and 0s
 PREDICTION_THRESHOLD = 0.5  #I set a threshold for the prediction
-y_pred = y_pred[:,0]+PREDICTION_THRESHOLD
+y_pred_1 = y_pred[:,0]+PREDICTION_THRESHOLD
 
-my_matrix = confusion_matrix(y[:,0].astype(int), y_pred.astype(int))
+my_matrix = confusion_matrix(y[:,0].astype(int), y_pred_1.astype(int))
 print("Confusion matrix \n", my_matrix, end="\n")
 print("\n Description: \n [[ good 1s, false 0s] \n [false 1s, good 0s]] \n")
 np.savetxt("Confusion_matrix.txt", my_matrix, fmt="%i")
@@ -85,7 +85,31 @@ ax = plt.gca()
 ax.set_xticks([])
 ax.set_yticks([])
 ax.xaxis.set_ticks_position('top')
-plt.title("Confusion matrix for 100 long test dataset.")
+plt.title("Confusion matrix for 100 long test dataset with %i threshold." % (PREDICTION_THRESHOLD))
 plt.xlabel("Predict class")
 plt.ylabel("True class")
 plt.savefig("Confusion_matrix.png", dpi=600)
+
+plt.figure()
+# ROC curve
+RANGE = 300000
+THRESHOLD = 0
+true_positive_rate = np.zeros(RANGE)
+false_positive_rate = np.zeros(RANGE)
+
+for i in range(RANGE):
+    # set a new threshold every time
+    THRESHOLD += 1/RANGE
+    y_pred_ROC = y_pred[:,0]+THRESHOLD
+    # evaluate the confusion matrix for different thresholds
+    my_matrix = confusion_matrix(y[:,0].astype(int), y_pred_ROC.astype(int))
+    true_positive_rate[i] = my_matrix[0,0]/50.
+    false_positive_rate[i] = my_matrix[1,0]/50.
+
+np.savetxt("ROC.txt", np.c_[false_positive_rate, true_positive_rate], fmt='%f')
+
+plt.plot(false_positive_rate, true_positive_rate, marker='.', linestyle='none')
+plt.xlabel("False positive rate")
+plt.ylabel("True positive rate")
+plt.title("ROC curve for %i different thresholds for 100 test data." % (RANGE))
+plt.savefig("ROC.png", dpi=600)
