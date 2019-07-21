@@ -71,5 +71,21 @@ y_pred = y_pred[:,0]+PREDICTION_THRESHOLD
 my_matrix = confusion_matrix(y[:,0].astype(int), y_pred.astype(int))
 print("Confusion matrix \n", my_matrix, end="\n")
 print("\n Description: \n [[ good 1s, false 0s] \n [false 1s, good 0s]] \n")
+np.savetxt("Confusion_matrix.txt", my_matrix, fmt="%i")
 
+plt.figure(figsize=(2,2))
+tb = plt.table(cellText=my_matrix, loc=(0,0), cellLoc='center')
+tc = tb.properties()['child_artists']
+tb.set_fontsize(20)
+for cell in tc:
+    cell.set_height(1/2)
+    cell.set_width(1/2)
 
+ax = plt.gca()
+ax.set_xticks([])
+ax.set_yticks([])
+ax.xaxis.set_ticks_position('top')
+plt.title("Confusion matrix for 100 long test dataset.")
+plt.xlabel("Predict class")
+plt.ylabel("True class")
+plt.savefig("Confusion_matrix.png", dpi=600)
