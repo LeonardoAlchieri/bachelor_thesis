@@ -15,4 +15,10 @@ Code to clean Planck/HFI and the neural network to analyse it.
     "molto bella" (ovvero quasi tutta schiacciata a sinistra) sia già abbastanza per far vedere che il mio network funziona 
     molto bene.
 
+## INFO ##
+  – Sono andato a provare a fare una seconda ROC utilizzando dei nuovi dati (sempre però dallo stesso pool di quegli altri). In questo caso, ho ottenuto una precisione inferiore (98%) sulla carta.
+    Andando però a visualizzare i dati che sono stati classificati in maniera "sbagliata", ho notato che sono delle situazioni in cui, molto probabilmente, ho sbagliato io quando ho eseguito la 
+    la classificazione manuale. 
+    Per vedere di che cosa parlo, vedere in locale il notebook ```TESTING.ipynb```.
+
 ©Leonardo Alchieri, 2019
