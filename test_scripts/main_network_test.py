@@ -108,7 +108,7 @@ for i in range(RANGE):
 
 np.savetxt("ROC.txt", np.c_[false_positive_rate, true_positive_rate], fmt='%f')
 
-plt.plot(false_positive_rate, true_positive_rate, marker='.', linestyle='none')
+plt.plot(false_positive_rate, true_positive_rate, marker='')
 plt.xlabel("False positive rate")
 plt.ylabel("True positive rate")
 plt.title("ROC curve for %i different thresholds for 100 test data." % (RANGE))
