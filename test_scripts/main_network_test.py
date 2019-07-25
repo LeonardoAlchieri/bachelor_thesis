@@ -70,7 +70,7 @@ y_pred_1 = y_pred[:,0]+PREDICTION_THRESHOLD
 
 my_matrix = confusion_matrix(y[:,0].astype(int), y_pred_1.astype(int))
 print("Confusion matrix \n", my_matrix, end="\n")
-print("\n Description: \n [[ good 1s, false 0s] \n [false 1s, good 0s]] \n")
+print("\n Description: \n [[ good 0s, false 1s] \n [false 0s, good 1s]] \n")
 np.savetxt("Confusion_matrix.txt", my_matrix, fmt="%i")
 
 plt.figure(figsize=(2,2))
@@ -92,7 +92,7 @@ plt.savefig("Confusion_matrix.png", dpi=600)
 
 plt.figure()
 # ROC curve
-RANGE = 300000
+RANGE = 1000000
 THRESHOLD = 0
 true_positive_rate = np.zeros(RANGE)
 false_positive_rate = np.zeros(RANGE)
@@ -103,8 +103,8 @@ for i in range(RANGE):
     y_pred_ROC = y_pred[:,0]+THRESHOLD
     # evaluate the confusion matrix for different thresholds
     my_matrix = confusion_matrix(y[:,0].astype(int), y_pred_ROC.astype(int))
-    true_positive_rate[i] = my_matrix[0,0]/50.
-    false_positive_rate[i] = my_matrix[1,0]/50.
+    true_positive_rate[i] = my_matrix[1,1]/50.
+    false_positive_rate[i] = my_matrix[0,1]/50.
 
 np.savetxt("ROC.txt", np.c_[false_positive_rate, true_positive_rate], fmt='%f')
 
