@@ -7,6 +7,11 @@ Code to clean Planck/HFI and the neural network to analyse it.
     sarebbe facilmente eseguibile: se un "glitch" appare in due giorni diversi nello stesso posto, significa che è una
     sorgente puntiforme.
 
+## COSE DA FARE ##
+  - Calcola area sotto integrale
+  - Mettere in ordine titoli e sottotitoli LateX. Decidere figure da inserire in ogni paragrafo. 
+    Cercare di mettere i titoli come discorso logico.
+    
 ## COSE FATTE ##
   – Ho aggiunto al codice per il test ```main_network_test.py``` il calcolo di una _confusion matrix_ e della curva _ROC_ (fatta su un numero grandissimo di possibili thresholds, 300000). 
 
