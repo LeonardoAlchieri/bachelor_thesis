@@ -8,17 +8,16 @@ Code to clean Planck/HFI and the neural network to analyse it.
     sorgente puntiforme.
 
 ## COSE DA FARE ##
-  - Calcola area sotto integrale
-  - Mettere in ordine titoli e sottotitoli LateX. Decidere figure da inserire in ogni paragrafo. 
-    Cercare di mettere i titoli come discorso logico.
+  - Calcola area sotto curva ROC.
+  - Aggiustare le figure più rappresentative per i _glitches_ e i _non-glitches_ (asse y). 
+
     
 ## COSE FATTE ##
   – Ho aggiunto al codice per il test ```main_network_test.py``` il calcolo di una _confusion matrix_ e della curva _ROC_ (fatta su un numero grandissimo di possibili thresholds, 300000). 
+  - (12 Agosto) Aggiunto tutti i titoli dei paragrafi. Penso che siano abbastanza in ordine logico. Ho sistemato gli assi y delle figure presenti. 
 
 ## DOMANDE ##  
-  – Devo andare anche a calcolare l'area sotto la _ROC_ (nota come _AUC_)? Ritengo che semplicemente mostrare come la curva 
-    "molto bella" (ovvero quasi tutta schiacciata a sinistra) sia già abbastanza per far vedere che il mio network funziona 
-    molto bene.
+
 
 ## INFO ##
   – Sono andato a provare a fare una seconda ROC utilizzando dei nuovi dati (sempre però dallo stesso pool di quegli altri). In questo caso, ho ottenuto una precisione inferiore (98%) sulla carta.
