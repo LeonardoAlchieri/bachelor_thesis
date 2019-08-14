@@ -55,8 +55,11 @@ while(n<2000):
         OUTPUT_FILE = ("Train Data/glitch/train_" + str(N_GLITCH) +".txt")
         
         plt.figure(2)
-        plt.plot(time_clean[begin:end], clean_data[begin:end], marker='.', linestyle='dashed', color='blue', alpha=1)
-        plt.savefig("plots/glitch" + str(N_GLITCH) + ".png", dpi=600)
+        plt.plot(time_clean[begin:end], 1E6*clean_data[begin:end], marker='.', linestyle='dashed', color='blue', alpha=1)
+        plt.xlabel("Time [s]")
+        plt.ylabel("Voltage [10⁻⁶V]")
+        plt.title("Timeseries with glitch.")
+        plt.savefig("plots/glitch/glitch" + str(N_GLITCH) + ".png", dpi=600)
         
         np.savetxt(OUTPUT_FILE, (time_clean[begin:end], clean_data[begin:end]))
 
@@ -74,8 +77,11 @@ while(n<2000):
         OUTPUT_FILE = ("Train Data/no_glitch/train_" + str(N_NO_GLITCH) +".txt")
         
         plt.figure(2)
-        plt.plot(time_clean[begin:end], clean_data[begin:end], marker='.', linestyle='dashed', color='blue', alpha=1)
-        plt.savefig("plots/no_glitch" + str(N_NO_GLITCH) + ".png", dpi=600)
+        plt.plot(time_clean[begin:end], 1E6*clean_data[begin:end], marker='.', linestyle='dashed', color='blue', alpha=1)
+        plt.xlabel("Time [s]")
+        plt.ylabel("Voltage [10⁻⁶V]")
+        plt.title("Timeseries without glitch.")
+        plt.savefig("plots/no_glitch/no_glitch" + str(N_NO_GLITCH) + ".png", dpi=600)
         
         np.savetxt(OUTPUT_FILE, (time_clean[begin:end], clean_data[begin:end]))
 
@@ -95,10 +101,25 @@ while(n<2000):
         OUTPUT_FILE = ("Train Data/long_glitch/train_" + str(N_LONG) +".txt")
         
         plt.figure(2)
-        plt.plot(time_clean[begin:end], clean_data[begin:end], marker='.', linestyle='dashed', color='blue', alpha=1)
-        plt.savefig("plots/long_glitch" + str(N_LONG) + ".png", dpi=600)
+        plt.plot(time_clean[begin:end], 1E6*clean_data[begin:end], marker='.', linestyle='dashed', color='blue', alpha=1)
+        plt.xlabel("Time [s]")
+        plt.ylabel("Voltage [10⁻⁶V]")
+        plt.title("Timeseries with long glitch.")
+        plt.savefig("plots/long_glitch/long_glitch" + str(N_LONG) + ".png", dpi=600)
 
         np.savetxt(OUTPUT_FILE, (time_clean[begin:end], clean_data[begin:end]))
+
+    elif(answer == 'p'):
+        print('Unable to classify, but I save the plot.')
+        
+        plt.figure(2)
+        plt.plot(time_clean[begin:end], 1E6*clean_data[begin:end], marker='.', linestyle='dashed', color='blue', alpha=1)
+        plt.xlabel("Time [s]")
+        plt.ylabel("Voltage [10⁻⁶V]")
+        plt.title("Timeseries unclassifiable.")
+        plt.savefig("plots/unclassifiable/unclassifiable" + str(N_LONG) + ".png", dpi=600)
+
+    
     else:
         print('Unable to classify.')
 
