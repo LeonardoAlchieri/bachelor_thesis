@@ -42,13 +42,14 @@ FILENAME_POSITIONS = "satellite_positions/HFI_TOI_100-PTG_R2.01_OD0093.fits"
 FILENAME_VOLTAGE = "data_voltage/HFI_TOI_100-RAW_R2.00_OD0093.fits"
 DETECTOR = "100-1a"
 
-
-
+print("-- Loading dust mask.")
 #read the dust mask
 MASK = healpy.read_map("HFI_dust_mask.fits.gz", verbose=False)
+print("-- Dust mask loaded.")
 #the nside (number of pixels) is taken as that of the mask
 NSIDE = healpy.npix2nside(len(MASK))
 
+print("-- Loading positions.")
 with fits.open(FILENAME_POSITIONS) as inpf:
     theta, phi = [inpf[DETECTOR].data.field(x) for x in ("THETA", "PHI")]
     
@@ -70,8 +71,9 @@ with fits.open(FILENAME_POSITIONS) as inpf:
     flag = MASK[pixidix] == 0
     #make an array with INT type out of the bool one.
     flag_array = flag.astype(np.int)
+print("-- Positions loaded.")
 
-
+print("-- Cleaning data.")
 #open the voltages
 with fits.open(FILENAME_VOLTAGE) as f:
     obt = f["OBT"].data.field("OBT")
@@ -99,19 +101,20 @@ G = p[1]
 
 #take the dipole out of the data
 V_CORRECT = data - G*dipole
-
+print("-- Almost done.")
 #take out from the data the directions corresponding to the galactic dust mask
 clean_data = V_CORRECT[flag_array==1]
 holed_raw = data[flag_array==1]
 
 #take out also on the time - this way I can have "holes" in the graph
 time_clean = time[flag_array==1]
-
+print("-- Data cleaned.")
+print("-- Saving cleaned data.")
 np.savetxt("data_to_classify/time_clean.txt", time_clean)
 np.savetxt("data_to_classify/clean_data.txt", clean_data)
+print("-- Cleaned data saved.")
 
-
-
+print("-- Saving sample plots.")
 #
 #
 #
@@ -152,3 +155,4 @@ plt.legend("best")
 
 plt.savefig("plots/no_gal_signal.png", dpi=600)
 
+print("-- Sample plots saved.")
