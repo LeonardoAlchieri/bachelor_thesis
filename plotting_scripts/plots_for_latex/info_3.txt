@@ -1,0 +1,4 @@
+Day: 104 
+Frequency: 143GHz 
+Bolometer = 1a 
+Accuracy test: 97%

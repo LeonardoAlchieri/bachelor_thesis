@@ -1,0 +1,3 @@
+Day: 94 
+Frequency: 100GHz 
+Bolometer = 1a
