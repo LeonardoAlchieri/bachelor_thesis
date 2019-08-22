@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 print("-- This code will create a mask from the Sky Map for Plank/HFI.")
 # Change this to find a suitable mask
-THRESHOLD = 0.005
+THRESHOLD = 0.01
 print("* Threshold: ", THRESHOLD)
 
 # Load the HFI 353 GHz map from the FITS file downloaded from the Planck Legacy Archive (PLA)
