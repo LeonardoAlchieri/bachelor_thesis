@@ -9,12 +9,14 @@ Code to clean Planck/HFI and the neural network to analyse it.
 
 ## COSE DA FARE ##
   - Calcola area sotto curva ROC.
-  - Aggiustare le figure più rappresentative per i _glitches_ e i _non-glitches_ (asse y). 
+  - Finire di scrivere la parte descrittiva.
+  - Scrivere l'introduzione teorica.
 
     
 ## COSE FATTE ##
   – Ho aggiunto al codice per il test ```main_network_test.py``` il calcolo di una _confusion matrix_ e della curva _ROC_ (fatta su un numero grandissimo di possibili thresholds, 300000). 
   - (12 Agosto) Aggiunto tutti i titoli dei paragrafi. Penso che siano abbastanza in ordine logico. Ho sistemato gli assi y delle figure presenti. 
+  - (14 Agosto) Ho sistemato le immagini con _glitch_ e _non glitch_ e le ho inserito nel corretto paragrafo.
 
 ## DOMANDE ##  
 
