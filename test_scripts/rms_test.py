@@ -108,4 +108,4 @@ my_model.evaluate(x,y[:,0])
 print("\n \n Neural network precision to the rms classification. \n")
 # I test the model with the predictions from the rms with the ones from the neural network.
 my_model.evaluate(x,y_rms)
-print("/n")
+print("\n")
