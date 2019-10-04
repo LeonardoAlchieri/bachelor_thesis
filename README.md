@@ -12,6 +12,6 @@ For more information, please feel free to contact me.
 
 Special thanks to my supervisor, **Maurizo Tomasi**, and to **Paolo Galli*. 
 
-Paolo Galli wrote some Machine Learning algorithms to address the same problem. Please go see his work. 
+Paolo Galli wrote some Machine Learning algorithms to address the same problem. Please go see his work at @Paolo97gll
 
 ©Leonardo Alchieri, 2019
