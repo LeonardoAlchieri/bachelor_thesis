@@ -1,0 +1,161 @@
+\documentclass[12pt,a4paper,final]{report}			%definire grandezza testo, foglio e tipo di testo.
+
+\usepackage[svgnames]{xcolor} % Required for colour specification
+
+%				** TIPI DI DOCUMENTI **
+%			- article
+%			- book
+%			- report
+%			
+%
+\usepackage[utf8]{inputenc}			%definisce la codifica dei caratteri
+\usepackage[english]{babel}				%definisce il pacchetto della lingua
+\usepackage{amsmath}						%contiene molti utili strumenti per la scrittura matematica
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{units}  					%unita di misura
+\usepackage{pgfplots}				%grafici
+\usepackage{subcaption}  		%per le figure
+\usepackage{gensymb} 			%per i gradi
+\usepackage{pst-solides3d}  %per figure in 3D
+\usepackage{hyperref}				%permette di linkare
+\usepackage{circuitikz}			%per circuiti
+\usepackage{pgfplots}				%per fare plot pgf
+\usepackage{subcaption}		%DON'T KNOW. INVESTIGATE
+\usepackage{siunitx} 				%unita SI
+\usepackage{wrapfig}				%per mettere più immagini insieme
+\usepackage{bbold}					%per avere numeri in \mathbb{}
+\usepackage{mathrsfs}			%per usare cose tipo \mathscr{}
+\usepackage{physics}				%contiene molta notazione utile; lo uso in particolare per \bra e \ket
+\usepackage{pgfplotstable}	%DON'T KNOW. INVESTIGATE
+\usepackage{titlesec}				%per formattare titoli, paragrafi etc.
+\usepackage{xfrac}
+\usepackage{cite}
+\usepackage{caption}
+\usepackage[font=small,labelfont=bf]{caption}		% serve per ridurre la dimensione delle captions
+%\usepackage[dvipsnames]{xcolor}	%permette di usare \colorbox. L'argomento del pacchetto è per definire il set di nomi dati ai colori.
+%\usepackage{tesi}
+
+%
+%
+%			FOR CODE SNIPPETS
+%
+%
+\usepackage{listings} % Required for inserting code snippets
+\definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
+\definecolor{highlight}{RGB}{255,251,204} % Code highlight color
+\lstdefinestyle{Style1}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
+language=python, % Detects keywords, comments, strings, functions, etc for the language specified
+backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
+basicstyle=\footnotesize\ttfamily, % The default font size and style of the code
+breakatwhitespace=false, % If true, only allows line breaks at white space
+breaklines=true, % Automatic line breaking (prevents code from protruding outside the box)
+captionpos=b, % Sets the caption position: b for bottom; t for top
+commentstyle=\usefont{T1}{pcr}{m}{sl}\color{DarkGreen}, % Style of comments within the code - dark green courier font
+deletekeywords={}, % If you want to delete any keywords from the current language separate them by commas
+%escapeinside={\%}, % This allows you to escape to LaTeX using the character in the bracket
+firstnumber=1, % Line numbers begin at line 1
+frame=single, % Frame around the code box, value can be: none, leftline, topline, bottomline, lines, single, shadowbox
+frameround=tttt, % Rounds the corners of the frame for the top left, top right, bottom left and bottom right positions
+keywordstyle=\color{Blue}\bf, % Functions are bold and blue
+morekeywords={}, % Add any functions no included by default here separated by commas
+numbers=left, % Location of line numbers, can take the values of: none, left, right
+numbersep=10pt, % Distance of line numbers from the code box
+numberstyle=\tiny\color{Gray}, % Style used for line numbers
+rulecolor=\color{black}, % Frame border color
+showstringspaces=false, % Don't put marks in string spaces
+showtabs=false, % Display tabs in the code as lines
+stepnumber=5, % The step distance between line numbers, i.e. how often will lines be numbered
+stringstyle=\color{Purple}, % Strings are purple
+tabsize=2, % Number of spaces per tab in the code
+}
+
+\lstdefinestyle{Style2}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
+language=bash, % Detects keywords, comments, strings, functions, etc for the language specified
+backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
+basicstyle=\footnotesize\ttfamily, % The default font size and style of the code
+breakatwhitespace=false, % If true, only allows line breaks at white space
+breaklines=true, % Automatic line breaking (prevents code from protruding outside the box)
+captionpos=b, % Sets the caption position: b for bottom; t for top
+commentstyle=\usefont{T1}{pcr}{m}{sl}\color{DarkGreen}, % Style of comments within the code - dark green courier font
+deletekeywords={}, % If you want to delete any keywords from the current language separate them by commas
+%escapeinside={\%}, % This allows you to escape to LaTeX using the character in the bracket
+firstnumber=1, % Line numbers begin at line 1
+frame=single, % Frame around the code box, value can be: none, leftline, topline, bottomline, lines, single, shadowbox
+frameround=tttt, % Rounds the corners of the frame for the top left, top right, bottom left and bottom right positions
+keywordstyle=\color{Blue}\bf, % Functions are bold and blue
+morekeywords={}, % Add any functions no included by default here separated by commas
+numbers=left, % Location of line numbers, can take the values of: none, left, right
+numbersep=10pt, % Distance of line numbers from the code box
+numberstyle=\tiny\color{Gray}, % Style used for line numbers
+rulecolor=\color{black}, % Frame border color
+showstringspaces=false, % Don't put marks in string spaces
+showtabs=false, % Display tabs in the code as lines
+stepnumber=5, % The step distance between line numbers, i.e. how often will lines be numbered
+stringstyle=\color{Purple}, % Strings are purple
+tabsize=2, % Number of spaces per tab in the code
+}
+% Create a command to cleanly insert a snippet with the style above anywhere in the document
+\newcommand{\insertcode}[2]{\begin{itemize}\item[]\lstinputlisting[caption=#2,label=#1,style=Style1]{#1}\end{itemize}} % The first argument is the script location/filename and the second is a caption for the listing
+
+\newcommand{\insertbash}[2]{\begin{itemize}\item[]\lstinputlisting[caption=#2,label=#1,style=Style2]{#1}\end{itemize}} 
+
+
+
+
+
+
+
+
+%TITOLO
+
+
+% NOT SURE WHAT THIS DOES. IT WAS PRESENT IN GABRIELE'S TEXT
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+% ----------------------------------------------------- % 
+% ----------------------------------------------------- % 
+% ----------------------------------------------------- % 
+% ----------------------------------------------------- % 
+\title{
+		\centering
+		\vspace{2mm}
+		\begin{figure}[h]
+			\centering{
+			\includegraphics{../figures/logo.jpg} }
+		\end{figure}
+		 \vspace{5mm}
+		 {FACOLTÀ DI SCIENZE E TECNOLOGIE} \\
+		 {DIPARTIMENTO DI FISICA ALDO PONTREMOLI} \\
+		 {Corso di Laurea triennale in Fisica (L-30)} \\
+		 \vspace{5mm}
+		\noindent\hrulefill \\
+		\vspace{5mm}
+		 \textbf{{Glitches classification in the Plank/HFI experiment using neural networks.}} 
+	 }
+% ----------------------------------------------------- % 
+	 
+\date{}
+	
+	\begin{document}
+			\maketitle
+				\begin{flushleft}
+			\vspace{10mm}
+			Relatore: Prof. Maurizio Tomasi \\
+			\par \end{flushleft}
+		\begin{flushright}
+			Tesi di laurea di Leonardo Alchieri
+			\\Matricola 886810
+			\\Anno Accademico 2018-2019
+			\par \end{flushright}
+		\thispagestyle{empty}
+		
+	\end{document}
