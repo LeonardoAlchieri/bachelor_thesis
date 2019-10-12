@@ -10,7 +10,7 @@ I also decided to provide the result that I have obtained, a net whose _accuracy
 
 For more information, please feel free to contact me.
 
-Special thanks to my supervisor, **Maurizo Tomasi**, and to **Paolo Galli*. 
+Special thanks to my supervisor, **Maurizo Tomasi**, and to **Paolo Galli**. 
 
 Paolo Galli wrote some Machine Learning algorithms to address the same problem. Please go see his work at @Paolo97gll
 
