@@ -1,5 +1,5 @@
-# BACHELOR'S THESIS
-Code to clean Planck/HFI and the neural network to analyse it.
+# BACHELOR'S THESIS – GLITCHS CLASSIFICATION IN THE PLANCK/HFI DATA USING NEURAL NETWORKS
+Code to clean Planck/HFI data and the neural network to analyse glitches in it.
 
 This code provides 
   - the means to clean the Planck/HFI raw data from Dipole effect and avoid Galactic Interstellar Medium. 
@@ -12,6 +12,6 @@ For more information, please feel free to contact me.
 
 Special thanks to my supervisor, **Maurizo Tomasi**, and to **Paolo Galli**. 
 
-Paolo Galli wrote some Machine Learning algorithms to address the same problem. Please go see his work at @Paolo97gll
+Paolo Galli wrote some Machine Learning algorithms to address the same problem. Please go see his work at @Paolo97gll.
 
 ©Leonardo Alchieri, 2019
